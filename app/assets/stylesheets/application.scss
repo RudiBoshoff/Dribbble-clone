@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ $pink: rgb(255, 67, 146);
+ $primary: $pink;
+ 
+ @import "bulma";

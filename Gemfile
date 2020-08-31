@@ -1,7 +1,29 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.1'
+gem 'jquery-rails', '~> 4.4'
+
+
+# used for styling
+gem 'bulma-rails', '~> 0.9.0'
+
+# used for security and authentication
+gem 'devise', '~> 4.7', '>= 4.7.2'
+
+# used to manipulate images. (might use image_processing gem at a later stage)
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+
+# used to count views of a post
+gem 'impressionist', '~> 2.0'
+
+# pulls gravatar image from email
+gem 'gravatar_image_tag', '~> 1.2'
+
+# gives ability to like posts
+gem 'acts_as_votable', '~> 0.12.1'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -40,6 +62,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # improves errors
+  gem 'better_errors', '~> 2.7', '>= 2.7.1'
+
+  # used for reloading webpage
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
