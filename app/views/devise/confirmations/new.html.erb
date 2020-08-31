@@ -4,12 +4,16 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <%= f.label :email class:"label"%><br />
+    <div class="control">
+      <%= f.email_field :email, class: "input" ,autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Resend confirmation instructions", class: "button is-primary" %>
+    </div>
   </div>
 <% end %>
 

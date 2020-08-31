@@ -1,6 +1,6 @@
 <%= form_with(model: shot, local: true) do |form| %>
   <% if shot.errors.any? %>
-    <div id="error_explanation">
+    <div class="notification is-danger">
       <h2><%= pluralize(shot.errors.count, "error") %> prohibited this shot from being saved:</h2>
 
       <ul>
@@ -12,16 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "label" %>
+    <div class="control">
+      <%= form.text_field :title, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description, class: "label" %>
+    <div class="control">
+      <%= form.text_area :description, class: "textarea", rows: "4", cols: "60" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <div class="control">
+      <%= form.submit class: "button is-primary" %>
+    </div>
   </div>
 <% end %>
