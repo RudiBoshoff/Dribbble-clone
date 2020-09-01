@@ -22,3 +22,8 @@
  $link-hover: darken($primary, 20%);
  
  @import "bulma";
+
+ html, body {
+   min-height: 100vh;
+   background-color: #f4f4f4;
+ }

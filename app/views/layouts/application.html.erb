@@ -24,7 +24,7 @@
         </a>
       </div>
 
-      <div id="navbarTop" class="navbar-menu">
+      <div id="navbarTop" class="navbar-menu is-shadowless">
         <div class="navbar-start">
         </div>
 
@@ -32,15 +32,32 @@
           <div class="navbar-item">
             <div class="buttons">
                 <% if user_signed_in? %>
-                    <%= link_to new_shot_path, class: "button is-primary is-inverted" do %>
+                    <%= link_to new_shot_path, class: "button is-primary" do %>
                       <span>New Shot </span>
                       <span class="icon is-small">
                         <i class="fas fa-upload"></i>
                       </span>
                     <% end %>
 
-                    <%= link_to current_user.name, edit_user_registration_path, class: "button is-primary" %>
-                    <%= link_to 'Logout', destroy_user_session_path, class: "button is-primary", method: :delete %>
+                    <div class="dropdown is-hoverable">
+                      <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                          <span><%= current_user.name.titleize%></span>
+                          <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                          <%= link_to 'Profile', profile_path(current_user), class: " dropdown-item" %>
+                          <%= link_to 'Account Settings', edit_user_registration_path, class: " dropdown-item" %>
+                          <hr class="dropdown-divider">
+                          <%= link_to 'Logout', destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                        </div>
+                      </div>
+                    </div>
+                    
                 <% else %>
                     <%= link_to 'Log In', new_user_session_path, class:"button is-primary is-inverted" %>
                     <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
@@ -53,11 +70,11 @@
 
      <%# Flash messages %>
     <% if flash[:notice] %>
-      <div class="notification is-light is-primary is-radiusless">
+      <div class="notification is-success is-radiusless">
         <p class="notice"><%= notice %></p>
       </div>
     <% elsif flash[:alert] %>
-      <div class="notification is-light is-danger is-radiusless">
+      <div class="notification is-danger is-radiusless">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
@@ -92,6 +109,11 @@
           });
         }
 
+        const elTrigger = document.querySelector(".dropdown-trigger");
+        const elDropdown = document.querySelector(".dropdown");
+        elTrigger.addEventListener("click", () => {
+          elDropdown.classList.toggle("is-active");
+        })
       });
 
     </script>
