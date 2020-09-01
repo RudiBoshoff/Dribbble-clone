@@ -1,4 +1,4 @@
-<%= form_with(model: shot, local: true) do |form| %>
+<%= form_with(model: shot, local: true, id: "new_shot") do |form| %>
   <% if shot.errors.any? %>
     <div class="notification is-danger">
       <h2><%= pluralize(shot.errors.count, "error") %> prohibited this shot from being saved:</h2>
@@ -11,6 +11,23 @@
     </div>
   <% end %>
 
+  <%# image preview %>
+  <% unless shot.user_shot.blank? %>
+    <%= image_tag shot.user_shot_url, id: "previewImage" %>
+  <% end %>
+
+  <%# drag and drop file uploader %>
+  <output id="list"></output>
+  <div id="drop_zone">Drag your shot here</div>
+  <br>
+
+  <%# file uploader %>
+  <div class="field">
+    <div class="control">
+      <%= form.file_field :user_shot, class: "input file-input"%>
+    </div>
+  </div>
+  
   <div class="field">
     <%= form.label :title, class: "label" %>
     <div class="control">
