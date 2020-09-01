@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
 
-	var Shots = {
+	let Shots = {
 		previewShot() {
 			if (window.File && window.FileList && window.FileReader) {
 
@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", function() {
 
 					let files = evt.target.files || evt.dataTransfer.files; 
 					// files is a FileList of File objects. List some properties.
-					for (var i = 0, f; f = files[i]; i++) {
+					for (let i = 0, f; f = files[i]; i++) {
 
 						// Only process image files.
 						if (!f.type.match('image.*')) {
@@ -23,10 +23,8 @@ document.addEventListener("turbolinks:load", function() {
 							return function(e) {
 								// Render thumbnail.
 								let span = document.createElement('span');
-								span.innerHTML = ['<img class="thumb" src="', e.target.result,
-									'" title="', escape(theFile.name), '"/>'
-								].join('');
-								document.getElementById('list').insertBefore(span, null);
+								span.innerHTML = `<img class="thumb" src="${e.target.result}" title="${escape(theFile.name)}"/>`;
+								document.querySelector('#thumbnail').insertBefore(span, null);
 							};
 						})(f);
 
@@ -43,11 +41,11 @@ document.addEventListener("turbolinks:load", function() {
 
 				// Setup the dnd listeners.
 				// https://stackoverflow.com/questions/47515232/how-to-set-file-input-value-when-dropping-file-on-page
-				const dropZone = document.getElementById('drop_zone');
+				const dropZone = document.querySelector('#drop-zone');
 				const target = document.documentElement;
-				const fileInput = document.getElementById('shot_user_shot');
-				const previewImage = document.getElementById('previewImage');
-				const newShotForm = document.getElementById('new_shot');
+				const fileInput = document.querySelector('#shot_user_shot');
+				const previewImage = document.querySelector('#preview-image');
+				const newShotForm = document.querySelector('#new-shot');
 
 
 				if (dropZone) {
