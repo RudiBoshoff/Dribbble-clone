@@ -39,7 +39,7 @@
                       </span>
                     <% end %>
 
-                    <div class="dropdown is-hoverable">
+                    <div class="dropdown">
                       <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                           <span><%= current_user.name.titleize%></span>
@@ -70,11 +70,11 @@
 
      <%# Flash messages %>
     <% if flash[:notice] %>
-      <div class="notification is-success is-radiusless">
+      <div class="notification is-primary is-radiusless">
         <p class="notice"><%= notice %></p>
       </div>
     <% elsif flash[:alert] %>
-      <div class="notification is-danger is-radiusless">
+      <div class="notification is-warning is-radiusless">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
@@ -82,40 +82,5 @@
     <section class="section">
       <%= yield %>
     </section>
-
-    <script>
-      // Navbar burger toggle
-      document.addEventListener('DOMContentLoaded', () => {
-
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-
-          // Add a click event on each of them
-          $navbarBurgers.forEach( el => {
-            el.addEventListener('click', () => {
-
-              // Get the target from the "data-target" attribute
-              const target = el.dataset.target;
-              const $target = document.getElementById(target);
-
-              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-              el.classList.toggle('is-active');
-              $target.classList.toggle('is-active');
-
-            });
-          });
-        }
-
-        const elTrigger = document.querySelector(".dropdown-trigger");
-        const elDropdown = document.querySelector(".dropdown");
-        elTrigger.addEventListener("click", () => {
-          elDropdown.classList.toggle("is-active");
-        })
-      });
-
-    </script>
   </body>
 </html>
