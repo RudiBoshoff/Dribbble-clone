@@ -1,14 +1,23 @@
-<p>
-  <strong>Title:</strong>
-  <%= @shot.title %>
-</p>
+<div class="columns">
+  <div class="column"></div>
+  <div class="column">
+    <%= image_tag @shot.user_shot.url %>
+    <p>        
+      <strong>Title:</strong>
+      <%= @shot.title %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @shot.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @shot.description %>
+    </p>
 
-<% if user_signed_in? %>
-  <%= link_to 'Edit', edit_shot_path(@shot) %> |
-<% end %>
-<%= link_to 'Back', shots_path %>
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_shot_path(@shot) %> |
+      <%= link_to 'Delete', shot_path(@shot), method: :delete, data: {confirm: "Are you sure?"} %> |
+    <% end %>
+    <%= link_to 'Back', shots_path %>
+
+  </div>
+  <div class="column"></div>
+</div>

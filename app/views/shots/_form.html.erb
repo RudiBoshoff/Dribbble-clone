@@ -19,12 +19,15 @@
   <%# drag and drop file uploader %>
   <output id="thumbnail"></output>
   <div id="drop-zone">Drag your shot here</div>
-  <br>
 
+  <div class="container has-text-centered mt-3 mb-3">
+    <p class="label">or</p>
+  </div>
+  
   <%# file uploader %>
   <div class="field">
     <div class="control">
-      <%= form.file_field :user_shot, class: "input file-input"%>
+      <%= form.file_field :user_shot, class: "input", id: "input-file"%>
     </div>
   </div>
   

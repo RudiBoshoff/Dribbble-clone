@@ -1,3 +1,37 @@
 // Place all the styles related to the Shots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.shots {
+  cursor: pointer;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.shot{
+  position: relative;
+
+  &__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    background-color: rgba(255,255,255,0.85);
+    opacity: 0;
+    padding: 1em;;
+    transition: 0.3s;
+  }
+
+  &__title {
+
+  }
+  
+  &__description {
+
+  }
+
+  &:hover &__hover{
+    opacity: 1;
+  }
+}
