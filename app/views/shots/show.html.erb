@@ -2,13 +2,10 @@
   <div class="column"></div>
   <div class="column">
     <%= image_tag @shot.user_shot.url %>
-    <p>        
-      <strong>Title:</strong>
+    <p class="shot__title title is-3">        
       <%= @shot.title %>
     </p>
-
-    <p>
-      <strong>Description:</strong>
+    <p class="shot__description subtitle">
       <%= @shot.description %>
     </p>
 

@@ -11,13 +11,17 @@
     </div>
   <% end %>
 
-  <%# image preview %>
+    <%# image preview when editing%>
   <% unless shot.user_shot.blank? %>
     <%= image_tag shot.user_shot_url, id: "preview-image" %>
   <% end %>
 
+  <%# Image preview when uploading %>
+  <div class="field">
+    <output id="thumbnail"></output>
+  </div>
+
   <%# drag and drop file uploader %>
-  <output id="thumbnail"></output>
   <div id="drop-zone">Drag your shot here</div>
 
   <div class="container has-text-centered mt-3 mb-3">
@@ -30,6 +34,7 @@
       <%= form.file_field :user_shot, class: "input", id: "input-file"%>
     </div>
   </div>
+
   
   <div class="field">
     <%= form.label :title, class: "label" %>

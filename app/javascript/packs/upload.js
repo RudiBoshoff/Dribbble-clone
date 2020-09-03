@@ -22,9 +22,20 @@ document.addEventListener("turbolinks:load", function() {
 						reader.onload = (function(theFile) {
 							return function(e) {
 								// Render thumbnail.
-								let span = document.createElement('span');
-								span.innerHTML = `<img class="thumb" src="${e.target.result}" title="${escape(theFile.name)}"/>`;
-								document.querySelector('#thumbnail').insertBefore(span, null);
+								// let span = document.createElement('span');
+								// span.innerHTML = `<img class="thumb" src="${e.target.result}" title="${escape(theFile.name)}"/>`;
+								// document.querySelector('#thumbnail').insertBefore(span, null);
+								// check if the document already has an image preview
+								if (document.querySelector('img')){
+									// has an image > replace it
+									document.querySelector('#thumbnail').innerHTML = "";
+									document.querySelector('#thumbnail').innerHTML = `<span><img class="thumb" src="${e.target.result}"/></span>`
+								}else {
+									// does not have an image > create it
+									let span = document.createElement('span');
+									span.innerHTML = `<img class="thumb" src="${e.target.result}"/>`;
+									document.querySelector('#thumbnail').insertBefore(span, null);
+								}
 							};
 						})(f);
 
@@ -43,7 +54,7 @@ document.addEventListener("turbolinks:load", function() {
 				// https://stackoverflow.com/questions/47515232/how-to-set-file-input-value-when-dropping-file-on-page
 				const dropZone = document.querySelector('#drop-zone');
 				const target = document.documentElement;
-				const fileInput = document.querySelector('#shot_user_shot');
+				const fileInput = document.querySelector('#input-file');
 				const previewImage = document.querySelector('#preview-image');
 				const newShotForm = document.querySelector('#new-shot');
 
