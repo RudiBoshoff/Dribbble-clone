@@ -1,0 +1,9 @@
+
+$pink: rgb(255, 67, 146);
+$pink-invert: #fff;
+$primary: $pink;
+$primary-invert: $pink-invert;
+$link: $primary;
+$link-hover: darken($primary, 20%);
+
+@import "bulma";

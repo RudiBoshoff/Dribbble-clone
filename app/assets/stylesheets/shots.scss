@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import 'variables';
+
 .shots {
   cursor: pointer;
   display: grid;
@@ -16,22 +18,63 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;;
+    width: 100%;
     background-color: rgba(255,255,255,0.85);
     opacity: 0;
     padding: 1em;;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  &__title {
-
-  }
-  
-  &__description {
-
+  &__like {
+    color: #999;
   }
 
   &:hover &__hover{
     opacity: 1;
   }
+}
+
+.js-drop-zone {
+  z-index: 10;
+ position: relative;
+ padding: 3rem 0;
+ border: 2px dashed #ccc;
+ text-align: center;
+ border-radius: 6px;
+ background-color: #f8f8f8;
+ 
+ &.dragging::before {
+   content: "";
+   position: absolute;
+   left: 0; 
+   width: 100%;
+   top: 0; 
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.5em;
+   background-color: rgba($primary, .3);
+   pointer-events: none;
+   z-index: 99;
+ }
+ 
+ &.fire::before {
+   content: "";
+   position: absolute;
+   left: 0; 
+   width: 100%;
+   top: 0; 
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.5em;
+   background-color: rgba($green, .3);
+   pointer-events: none;
+   z-index: 99;
+ }
 }

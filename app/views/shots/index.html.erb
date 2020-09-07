@@ -1,14 +1,17 @@
 <div class="container">
   <div class="shots">
       <% @shots.each do |shot| %>
-        <%= link_to shot, class: "has-text-black" do %>
           <div class="shot">
-            <%= image_tag shot.user_shot.url , class: "shot__image"%>
+            <%= link_to shot, class: "has-text-black" do %>
+              <%= image_tag shot.user_shot.url , class: "shot__image"%>
+            <% end %>
             <div class="shot__hover">
               <h2 class="shot__title"><%= shot.title %></h2>
+              <%= link_to root_path, class: "shot__like" do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
             </div>
           </div>
-        <% end %>
       <% end %>
   </div>
 </div>

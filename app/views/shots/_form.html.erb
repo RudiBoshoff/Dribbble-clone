@@ -13,28 +13,49 @@
 
     <%# image preview when editing%>
   <% unless shot.user_shot.blank? %>
-    <%= image_tag shot.user_shot_url, id: "preview-image" %>
+    <%= image_tag shot.user_shot_url, class: "js-image-preview" %>
   <% end %>
 
   <%# Image preview when uploading %>
   <div class="field">
-    <output id="thumbnail"></output>
+    <output class="js-thumbnail"></output>
   </div>
 
   <%# drag and drop file uploader %>
-  <div id="drop-zone">Drag your shot here</div>
+  <div class="js-drop-zone">Drag your shot here</div>
 
   <div class="container has-text-centered mt-3 mb-3">
     <p class="label">or</p>
   </div>
   
+  <!--
   <%# file uploader %>
   <div class="field">
     <div class="control">
-      <%= form.file_field :user_shot, class: "input", id: "input-file"%>
+      <%= form.file_field :user_shot, class: "input js-file-input"%>
     </div>
   </div>
+-->
 
+  <%# file uploader Bulma %>
+  <div class="field">
+    <div class="file has-name is-dark is-fullwidth">
+      <%= form.label :user_shot, class: "file-label" do %>
+          <%= form.file_field :user_shot, class: "file-input js-file-input" %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name js-file-name">
+            No file uploaded
+          </span>
+      <% end %>
+    </div>
+  </div>
   
   <div class="field">
     <%= form.label :title, class: "label" %>
