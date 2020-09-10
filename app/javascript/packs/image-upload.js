@@ -3,6 +3,7 @@ document.addEventListener("turbolinks:load", function() {
   const fileName = document.querySelector('.js-file-name');
   const dropZone = document.querySelector('.js-drop-zone');
   
+  // upload image and change image preview
   if (fileInput){
     fileInput.addEventListener("change", () => {
       updateFileName(fileInput, fileName);
@@ -10,39 +11,29 @@ document.addEventListener("turbolinks:load", function() {
     });
   }
   
+  // upload dropped image and change image preview
   if (fileExists(dropZone)){
     DragAndDropImageUpload(dropZone, fileInput, fileName);
   }
 })
 
+// changes the span acting as the label to the name of the uploaded file
 function updateFileName(fileInput, fileName){
   if (fileInput.files.length > 0) {
     fileName.textContent = fileInput.files[0].name;
   }
 }
 
+// changes the preview image when uploading using the file input
 function updateThumbnail(input) {
   if (input.files && input.files[0]) {
-    
     const reader = new FileReader();
-    reader.onload = function(e) {
-      // check if the document already has an image preview
-      if (document.querySelector('img')){
-        // has an image > replace it
-        document.querySelector('.js-thumbnail').innerHTML = "";
-        document.querySelector('.js-thumbnail').innerHTML = `<span><img class="thumb" src="${e.target.result}"/></span>`
-      }else {
-        // does not have an image > create it
-        let span = document.createElement('span');
-        span.innerHTML = `<img class="thumb" src="${e.target.result}"/>`;
-        document.querySelector('.js-thumbnail').insertBefore(span, null);
-      }
-    }
-    
+    reader.onload = (e) => (document.querySelector('img') ? updateImage(e) : createImage(e));
     reader.readAsDataURL(input.files[0]); // convert to base64 string
   }
 }
 
+// uploads the image when the image is dragged and dropped on the dropzone
 function DragAndDropImageUpload(dropZone, fileInput, fileName) {
   dropZone.addEventListener('dragover', (e) => {
     e.stopPropagation();
@@ -76,6 +67,7 @@ function DragAndDropImageUpload(dropZone, fileInput, fileName) {
   }, false);
 }
 
+// attaches the dragged file to the file input
 function populateFileInput(e) {
   e.stopPropagation();
   e.preventDefault();
@@ -88,20 +80,19 @@ function populateFileInput(e) {
   }
   
   const reader = new FileReader();
-
-  // Closure to capture the file information.
   reader.onload = (e) => (document.querySelector('img') ? updateImage(e) : createImage(e));
-
   // Read in the image file as a data URL.
   reader.readAsDataURL(file);
 }
 
+// updates the preview image
 function updateImage(e){
 	const thumbnail = document.querySelector('.js-thumbnail');
   thumbnail.innerHTML = "";
   thumbnail.innerHTML = `<span><img class="thumbnail" src="${e.currentTarget.result}"/></span>`;
 }
 
+// creates a preview image
 function createImage(e){
 	const thumbnail = document.querySelector('.js-thumbnail');
   let span = document.createElement('span');
@@ -109,6 +100,7 @@ function createImage(e){
   thumbnail.insertBefore(span, null);
 }
 
+// checks if a file has been dragged into the window
 function fileExists(dropZone) {
   return window.File && window.FileList && window.FileReader && dropZone;
 }
