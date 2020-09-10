@@ -87,14 +87,14 @@ function populateFileInput(e) {
 
 // updates the preview image
 function updateImage(e){
-	const thumbnail = document.querySelector('.js-thumbnail');
+  const thumbnail = document.querySelector('.js-thumbnail');
   thumbnail.innerHTML = "";
   thumbnail.innerHTML = `<span><img class="thumbnail" src="${e.currentTarget.result}"/></span>`;
 }
 
 // creates a preview image
 function createImage(e){
-	const thumbnail = document.querySelector('.js-thumbnail');
+  const thumbnail = document.querySelector('.js-thumbnail');
   let span = document.createElement('span');
   span.innerHTML = `<img class="thumbnail" src="${e.currentTarget.result}"/>`;
   thumbnail.insertBefore(span, null);
