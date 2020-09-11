@@ -13,37 +13,65 @@
  *= require_tree .
  *= require_self
  */
-
+ 
  @import 'variables';
  
-
- html, body {
-   min-height: 100vh;
-   background-color: #f4f4f4;
+ .turbolinks-progress-bar {
+   height: 10px;
+   background-color: $pink;
  }
 
-.notification {
-	border-radius: none;
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background: $pink;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .dot {
+    background: $pink-invert;
+    width: 30%;
+    padding-top: 30% ;
+    @media only screen and (min-width: $mobile){
+      width: 20%;
+      padding-top: 20% ;
+    }
+    @media only screen and (min-width: $tablet){
+      width: 10%;
+      padding-top: 10% ;
+    }
+    position: relative;
+    border-radius: 50%;
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
+  }
 }
 
-// SCROLL BAR
-::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+@keyframes loading {
+  0%{
+    transform: scale(0.5);
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 
-::-webkit-scrollbar {
-	width: 10px;
-	background-color: #F5F5F5;
+.hide {
+  visibility: hidden;
+  overflow: hidden;
 }
 
-::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: $pink;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: $link-hover;
+.scroll-lock {
+  height: 100vh;
+  overflow: hidden;
 }

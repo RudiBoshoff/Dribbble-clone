@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field mb-5">
+  <div class="field mb-5 js-image-upload">
     <!-- drag and drop file uploader -->
     <div class="js-drop-zone">Drag your shot here</div>
     
@@ -49,6 +49,9 @@
     </output>
   </div>
 
+  <div class="field js-change-image hidden">
+    <button class="button">Change Image</button>
+  </div>
 
   <div class="field">
     <%= form.label :title, class: "label" %>

@@ -22,5 +22,12 @@ document.addEventListener('turbolinks:load', () => {
   });
 
   //////////////////////////////////////////////////////////////////
-  
+  const changeImage = document.querySelector(".js-change-image button");
+  const imageUpload = document.querySelector(".js-image-upload");
+  changeImage.addEventListener("click", (e) => { 
+    e.preventDefault();
+    imageUpload.classList.toggle("hidden");
+    document.querySelector(".js-change-image").classList.toggle("hidden");
+    document.querySelector(".thumbnail").classList.toggle("hidden");
+  });
 });

@@ -90,6 +90,11 @@ function updateImage(e){
   const thumbnail = document.querySelector('.js-thumbnail');
   thumbnail.innerHTML = "";
   thumbnail.innerHTML = `<span><img class="thumbnail" src="${e.currentTarget.result}"/></span>`;
+  const changeImage = document.querySelector(".js-change-image");
+  changeImage.classList.toggle("hidden");
+
+  const imageUpload = document.querySelector(".js-image-upload");
+  imageUpload.classList.toggle("hidden");
 }
 
 // creates a preview image
@@ -98,6 +103,12 @@ function createImage(e){
   let span = document.createElement('span');
   span.innerHTML = `<img class="thumbnail" src="${e.currentTarget.result}"/>`;
   thumbnail.insertBefore(span, null);
+
+  const changeImage = document.querySelector(".js-change-image");
+  changeImage.classList.toggle("hidden");
+
+  const imageUpload = document.querySelector(".js-image-upload");
+  imageUpload.classList.toggle("hidden");
 }
 
 // checks if a file has been dragged into the window

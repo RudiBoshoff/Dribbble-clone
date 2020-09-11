@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("packs/loading")
 require("packs/toggles")
 require("packs/image-upload")
 

@@ -3,13 +3,42 @@
       <% @shots.each do |shot| %>
           <div class="shot">
             <%= link_to shot, class: "has-text-black" do %>
-              <%= image_tag shot.user_shot.url , class: "shot__image"%>
+              <%= image_tag shot.user_shot.url , class: "shot__image", loading: "lazy"%>
             <% end %>
-            <div class="shot__hover">
-              <h2 class="shot__title"><%= shot.title %></h2>
-              <%= link_to root_path, class: "shot__like" do %>
-                <i class="fas fa-heart"></i>
-              <% end %>
+
+            <div class="shot--details">
+              <div class="level is-mobile">
+                <div class="level-left">
+                  <div class="level-item">
+                    <figure figure class="image is-32x32">
+                      <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" loading="lazy">
+                    </figure>
+                  </div>
+                  <div class="level-item">
+                    <%= link_to root_path, class: "shot__user" do %>
+                      <%= shot.user.name.titleize %>
+                    <% end %>
+                  </div>
+                </div>
+                
+                <div class="level-right">
+                  <div class="level-item">
+                    <div class="shot__view">
+                      <span>231</span><i class="fas fa-eye"></i>
+                    </div>
+                  </div>
+                  <div class="level-item">
+                    <%= link_to root_path, class: "shot__comment" do %>
+                      <span>231</span><i class="fas fa-comment"></i>
+                    <% end %>
+                  </div>
+                  <div class="level-item">
+                    <%= link_to root_path, class: "shot__like" do %>
+                      <span>78</span><i class="fas fa-heart"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
       <% end %>

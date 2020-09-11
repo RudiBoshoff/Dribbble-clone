@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>DribbbleClone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,78 +10,86 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <%# <h1 class="title is-5 has-text-white">Dribbble</h1> %>
-          <svg width="91" height="27" viewBox="0 0 91 23" fill="black" xmlns="http://www.w3.org/2000/svg" svg-inline="" role="presentation" focusable="false" tabindex="-1"><path clip-rule="evenodd" d="M90.859 17.743c-3.803 6.518-9.825 4.626-11.634 3.146-.77.528-2.12 1.685-3.92 1.551-3.833-.284-5.205-5.822-5.205-5.822.027.022-1.142.408-1.774.401-.008 1.624-1.397 5.504-5.144 5.454-4.206-.055-5.06-6.39-5.06-6.39s-.419.588-2.01 1.173c.08-1.247.021 5.027-5.019 5.12-3.984.072-5.06-6.39-5.06-6.39s-.691.726-2.03.978c.084-1.268-.054 5.433-5.095 5.411-3.406-.014-4.57-3.98-4.48-4.531.116-.702-1.151 4.63-4.46 4.547-1.366-.04-2.384-1.04-3.022-2.373-.856.99-2.097 2.373-3.49 2.373-2.5 0-3.602-2.114-3.415-8.152.015-.716-.036-.998-.74-1.105-.422-.072-.855-.207-1.313-.278-.147.495-1.392 9.374-5.673 9.542-1.437.057-2.222-1.201-2.867-2.135-.989 1.323-2.294 2.177-4.153 2.177C2.145 22.44 0 19.866 0 16.691s2.146-5.748 5.295-5.748c.557 0 .713.08 1.222.23C5.47 1.543 7.94.038 10.103.038c2.075 0 5.62 4.87.632 17.22 1.107 3.683 3.494 3.474 4.642-4.108.233-1.542-.391-3.622.58-3.912 1.775-.53 1.963 1.061 2.795 1.326.88.28 1.394.253 2.239.431 1.444.286 2.007 1.07 1.831 2.816-.211 2.21-.58 5.425.546 5.817.813.285 2.296-1.418 2.556-2.35.26-.932.315-1.251.338-1.935.035-1.46.08-2.532.326-3.636.105-.428.225-.711.704-.73.393-.01 1.113-.13 1.43.119.423.32.37.646.322 1.503-.492 12.219 3.29 6.12 4.417 1.235C33.06 8.312 33.335.14 36.758.003c1.78-.072 2.567 1.37 2.654 2.446.245 3.04-1.127 8.075-2.93 11.461-1.032 6.91 4.507 8.275 5.393 2.76-1.45-.696-3.015-3.516-1.741-4.89.715-.77 3.691.337 3.74 2.753 1.46-.395 1.655-1.228 1.675-1.09C45.15 7.921 45.52.14 48.945.003c1.78-.072 2.567 1.37 2.653 2.446.245 3.04-1.127 8.075-2.93 11.461-1.031 6.91 4.507 8.275 5.393 2.76-1.073-.209-3.338-3.208-2.031-4.89.698-.898 3.664.97 3.996 2.833 1.403-.401 1.593-1.208 1.613-1.072C57.237 8.018 57.608.238 61.032.1c1.78-.072 2.567 1.37 2.654 2.446.245 3.04-1.127 8.075-2.93 11.461-1.032 6.91 4.507 8.275 5.392 2.76-1.474-.248-3.57-3.414-1.883-5.034.674-.647 3.248 1.033 3.851 2.95.837-.033 1.359-.325 1.47-.354C68.25 7.845 69.245.067 72.927.002c1.99-.035 3.936 1.088 3.082 7.255-.815 5.885-3.746 8.355-3.739 8.393.17.705 1.675 6.605 5.461 3.492-.196-.45-.392-.908-.502-1.463-.627-3.235.606-6.89 3.957-7.48 1.92-.338 3.728.607 4.014 2.737.47 3.486-2.643 6.01-3.827 6.558-.53-.304 4.807 3.156 7.974-3.779.184-.396.405-.362.692-.158.203.144 1.357 1.25.82 2.185zM7.586 15.835a41.43 41.43 0 01-.609-2.026c-.644-.566-1.104-.658-1.93-.658-1.838 0-2.92 1.717-2.92 3.57 0 1.851 1.179 3.569 3.016 3.569 1.592 0 2.804-1.095 3.174-2.644-.259-.604-.515-1.16-.731-1.811zm2.472-13.247c-1.291 0-1.73 3.113-1.644 5.77.075 2.348.724 4.416 1.06 5.342.086.116.07.04.147.164 2.241-4.966 1.311-11.276.437-11.276zm26.885.097c-1.67-.193-1.658 6.834-1.451 8.41.866-1.4 2.372-8.032 1.45-8.41zm12.185 0c-1.669-.193-1.658 6.834-1.451 8.41.867-1.4 2.372-8.032 1.45-8.41zm12.088.098c-1.668-.193-1.658 6.834-1.45 8.41.866-1.401 2.372-8.033 1.45-8.41zm11.895-.509c-2.6.528-1.994 9.291-1.6 10.828 3.063-4.252 3.126-10.988 1.6-10.828zm9.744 10.951c-.132-.558-.793-.857-1.25-.783-1.305.18-2.57 1.823-2.08 4.326.108.557.381 1.07.377 1.053 2.921-1.981 3.17-3.543 2.953-4.596zM27.803 9.043c-.373 0-.737-.112-1.048-.321a1.903 1.903 0 01-.694-.856 1.927 1.927 0 01.408-2.078 1.867 1.867 0 012.056-.413c.345.144.64.388.847.702a1.922 1.922 0 01-.235 2.408 1.884 1.884 0 01-1.334.558z"></path></svg>
-        <% end %>
+  <body class="scroll-lock">
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+    <%# loading animation %>
+    <div class="loading js-loading">
+      <div class="dot"></div>
+    </div>
 
-      <div id="navbarTop" class="navbar-menu is-shadowless">
-        <div class="navbar-start">
+    <div class="site-container hide">
+      <nav data-turbolinks-permanent class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <%# <h1 class="title is-5 has-text-white">Dribbble</h1> %>
+            <svg width="91" height="27" viewBox="0 0 91 23" fill="black" xmlns="http://www.w3.org/2000/svg" svg-inline="" role="presentation" focusable="false" tabindex="-1"><path clip-rule="evenodd" d="M90.859 17.743c-3.803 6.518-9.825 4.626-11.634 3.146-.77.528-2.12 1.685-3.92 1.551-3.833-.284-5.205-5.822-5.205-5.822.027.022-1.142.408-1.774.401-.008 1.624-1.397 5.504-5.144 5.454-4.206-.055-5.06-6.39-5.06-6.39s-.419.588-2.01 1.173c.08-1.247.021 5.027-5.019 5.12-3.984.072-5.06-6.39-5.06-6.39s-.691.726-2.03.978c.084-1.268-.054 5.433-5.095 5.411-3.406-.014-4.57-3.98-4.48-4.531.116-.702-1.151 4.63-4.46 4.547-1.366-.04-2.384-1.04-3.022-2.373-.856.99-2.097 2.373-3.49 2.373-2.5 0-3.602-2.114-3.415-8.152.015-.716-.036-.998-.74-1.105-.422-.072-.855-.207-1.313-.278-.147.495-1.392 9.374-5.673 9.542-1.437.057-2.222-1.201-2.867-2.135-.989 1.323-2.294 2.177-4.153 2.177C2.145 22.44 0 19.866 0 16.691s2.146-5.748 5.295-5.748c.557 0 .713.08 1.222.23C5.47 1.543 7.94.038 10.103.038c2.075 0 5.62 4.87.632 17.22 1.107 3.683 3.494 3.474 4.642-4.108.233-1.542-.391-3.622.58-3.912 1.775-.53 1.963 1.061 2.795 1.326.88.28 1.394.253 2.239.431 1.444.286 2.007 1.07 1.831 2.816-.211 2.21-.58 5.425.546 5.817.813.285 2.296-1.418 2.556-2.35.26-.932.315-1.251.338-1.935.035-1.46.08-2.532.326-3.636.105-.428.225-.711.704-.73.393-.01 1.113-.13 1.43.119.423.32.37.646.322 1.503-.492 12.219 3.29 6.12 4.417 1.235C33.06 8.312 33.335.14 36.758.003c1.78-.072 2.567 1.37 2.654 2.446.245 3.04-1.127 8.075-2.93 11.461-1.032 6.91 4.507 8.275 5.393 2.76-1.45-.696-3.015-3.516-1.741-4.89.715-.77 3.691.337 3.74 2.753 1.46-.395 1.655-1.228 1.675-1.09C45.15 7.921 45.52.14 48.945.003c1.78-.072 2.567 1.37 2.653 2.446.245 3.04-1.127 8.075-2.93 11.461-1.031 6.91 4.507 8.275 5.393 2.76-1.073-.209-3.338-3.208-2.031-4.89.698-.898 3.664.97 3.996 2.833 1.403-.401 1.593-1.208 1.613-1.072C57.237 8.018 57.608.238 61.032.1c1.78-.072 2.567 1.37 2.654 2.446.245 3.04-1.127 8.075-2.93 11.461-1.032 6.91 4.507 8.275 5.392 2.76-1.474-.248-3.57-3.414-1.883-5.034.674-.647 3.248 1.033 3.851 2.95.837-.033 1.359-.325 1.47-.354C68.25 7.845 69.245.067 72.927.002c1.99-.035 3.936 1.088 3.082 7.255-.815 5.885-3.746 8.355-3.739 8.393.17.705 1.675 6.605 5.461 3.492-.196-.45-.392-.908-.502-1.463-.627-3.235.606-6.89 3.957-7.48 1.92-.338 3.728.607 4.014 2.737.47 3.486-2.643 6.01-3.827 6.558-.53-.304 4.807 3.156 7.974-3.779.184-.396.405-.362.692-.158.203.144 1.357 1.25.82 2.185zM7.586 15.835a41.43 41.43 0 01-.609-2.026c-.644-.566-1.104-.658-1.93-.658-1.838 0-2.92 1.717-2.92 3.57 0 1.851 1.179 3.569 3.016 3.569 1.592 0 2.804-1.095 3.174-2.644-.259-.604-.515-1.16-.731-1.811zm2.472-13.247c-1.291 0-1.73 3.113-1.644 5.77.075 2.348.724 4.416 1.06 5.342.086.116.07.04.147.164 2.241-4.966 1.311-11.276.437-11.276zm26.885.097c-1.67-.193-1.658 6.834-1.451 8.41.866-1.4 2.372-8.032 1.45-8.41zm12.185 0c-1.669-.193-1.658 6.834-1.451 8.41.867-1.4 2.372-8.032 1.45-8.41zm12.088.098c-1.668-.193-1.658 6.834-1.45 8.41.866-1.401 2.372-8.033 1.45-8.41zm11.895-.509c-2.6.528-1.994 9.291-1.6 10.828 3.063-4.252 3.126-10.988 1.6-10.828zm9.744 10.951c-.132-.558-.793-.857-1.25-.783-1.305.18-2.57 1.823-2.08 4.326.108.557.381 1.07.377 1.053 2.921-1.981 3.17-3.543 2.953-4.596zM27.803 9.043c-.373 0-.737-.112-1.048-.321a1.903 1.903 0 01-.694-.856 1.927 1.927 0 01.408-2.078 1.867 1.867 0 012.056-.413c.345.144.64.388.847.702a1.922 1.922 0 01-.235 2.408 1.884 1.884 0 01-1.334.558z"></path></svg>
+          <% end %>
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTop">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-                <% if user_signed_in? %>
-                    <%= link_to new_shot_path, class: "button is-primary" do %>
-                      <span>New Shot </span>
-                      <span class="icon is-small">
-                        <i class="fas fa-upload"></i>
-                      </span>
-                    <% end %>
+        <div id="navbarTop" class="navbar-menu is-shadowless">
+          <div class="navbar-start">
+          </div>
 
-                    <div class="dropdown">
-                      <div class="dropdown-trigger">
-                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                          <span><%= current_user.name.titleize%></span>
-                          <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                          </span>
-                        </button>
-                      </div>
-                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                          <%= link_to 'Profile', profile_path(current_user), class: " dropdown-item" %>
-                          <%= link_to 'Account Settings', edit_user_registration_path, class: " dropdown-item" %>
-                          <hr class="dropdown-divider">
-                          <%= link_to 'Logout', destroy_user_session_path, class: "dropdown-item", method: :delete %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                  <% if user_signed_in? %>
+                      <%= link_to new_shot_path, class: "button is-primary" do %>
+                        <span>New Shot </span>
+                        <span class="icon is-small">
+                          <i class="fas fa-upload"></i>
+                        </span>
+                      <% end %>
+
+                      <div class="dropdown">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span><%= current_user.name.titleize%></span>
+                            <span class="icon is-small">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                          <div class="dropdown-content">
+                            <%= link_to 'Profile', profile_path(current_user), class: " dropdown-item" %>
+                            <%= link_to 'Account Settings', edit_user_registration_path, class: " dropdown-item" %>
+                            <hr class="dropdown-divider">
+                            <%= link_to 'Logout', destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
-                <% else %>
-                    <%= link_to 'Log In', new_user_session_path, class:"button is-primary is-inverted" %>
-                    <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
-                <% end %>
+                      
+                  <% else %>
+                      <%= link_to 'Log In', new_user_session_path, class:"button is-primary is-inverted" %>
+                      <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
+                  <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-     <%# Flash messages %>
-    <% if flash[:notice] %>
-      <div class="notification is-primary is-radiusless">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="notification is-warning is-radiusless">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
+      <%# Flash messages %>
+      <% if flash[:notice] %>
+        <div class="notification is-primary is-radiusless">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="notification is-warning is-radiusless">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
 
-    <section class="section">
-      <%= yield %>
-    </section>
+      <section class="section">
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>

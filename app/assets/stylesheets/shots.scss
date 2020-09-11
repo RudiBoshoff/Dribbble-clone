@@ -7,34 +7,47 @@
 .shots {
   cursor: pointer;
   display: grid;
-  gap: 1em;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 }
 
 .shot{
   position: relative;
 
-  &__hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255,255,255,0.85);
-    opacity: 0;
-    padding: 1em;;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &--details {
+    cursor: default;
+  }
+  
+  &__image {
+    border-radius: .5em;
+    
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
   }
 
-  &__like {
+  &__user {
+    color: #111;
+    font-weight: bold;
+  }
+
+  &__like, &__comment, &__view {
     color: #999;
+    span {
+      padding-right: 5px;
+    }
   }
 
-  &:hover &__hover{
-    opacity: 1;
+  &__view {
+    display: none;
+    
+    @media only screen and (min-width: $mobile){
+      display: block;
+    }
+
   }
+
 }
 
 .js-drop-zone {
@@ -86,3 +99,4 @@
 .thumbnail {
   width: 100%;
 }
+

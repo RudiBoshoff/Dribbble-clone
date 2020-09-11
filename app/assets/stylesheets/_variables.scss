@@ -6,4 +6,7 @@ $primary-invert: $pink-invert;
 $link: $primary;
 $link-hover: darken($primary, 20%);
 
+$tablet: 1124px;
+$mobile: 450px;
+
 @import "bulma";
