@@ -11,7 +11,11 @@
     </div>
   <% end %>
 
+  <% if shot.user_shot.blank? %>
   <div class="field mb-5 js-image-upload">
+  <% else %>
+   <div class="field mb-5 js-image-upload hidden"> 
+  <% end %>
     <!-- drag and drop file uploader -->
     <div class="js-drop-zone">Drag your shot here</div>
     
@@ -44,12 +48,16 @@
     <output class="js-thumbnail">
     <% unless shot.user_shot.blank? %>
       <!-- image preview when editing-->
-      <span><%= image_tag shot.user_shot_url, class: "js-thumbnail" %></span>
+      <span><%= image_tag shot.user_shot_url, class: "thumbnail" %></span>
     <% end %>
     </output>
   </div>
 
+  <% if shot.user_shot.blank? %>
   <div class="field js-change-image hidden">
+  <% else %>
+  <div class="field js-change-image">
+  <% end %>
     <button class="button">Change Image</button>
   </div>
 
@@ -67,9 +75,12 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="field is-grouped">
     <div class="control">
       <%= form.submit class: "button is-primary" %>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', root_path, class: "button" %>
     </div>
   </div>
 <% end %>

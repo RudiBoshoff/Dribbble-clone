@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
     setTimeout(() => {
       document.querySelector(".js-loading").style.display="none";
-      document.querySelector(".site-container").classList.toggle("hide");
-      document.querySelector("body").classList.toggle("scroll-lock");
+      document.querySelector(".js-container").classList.remove("hide");
+      document.querySelector("body").classList.remove("scroll-lock");
     }, 4000);
 });

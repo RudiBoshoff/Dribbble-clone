@@ -12,12 +12,7 @@
 
   <body class="scroll-lock">
 
-    <%# loading animation %>
-    <div class="loading js-loading">
-      <div class="dot"></div>
-    </div>
-
-    <div class="site-container hide">
+    <div class="site-container">
       <nav data-turbolinks-permanent class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <%= link_to root_path, class: "navbar-item" do %>
@@ -79,10 +74,12 @@
       <%# Flash messages %>
       <% if flash[:notice] %>
         <div class="notification is-primary is-radiusless">
+          <button class="delete"></button>
           <p class="notice"><%= notice %></p>
         </div>
       <% elsif flash[:alert] %>
         <div class="notification is-warning is-radiusless">
+          <button class="delete"></button>
           <p class="alert"><%= alert %></p>
         </div>
       <% end %>
