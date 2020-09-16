@@ -18,6 +18,11 @@
     cursor: default;
   }
   
+  &__title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__image {
     border-radius: .5em;
     

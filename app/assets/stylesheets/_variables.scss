@@ -5,8 +5,7 @@ $primary: $pink;
 $primary-invert: $pink-invert;
 $link: $primary;
 $link-hover: darken($primary, 20%);
+$green: hsl(141, 71%, 48%);
 
 $tablet: 1124px;
 $mobile: 450px;
-
-@import "bulma";
