@@ -8,7 +8,7 @@
       <% @shots.each do |shot| %>
           <div class="shot">
             <%= link_to shot, class: "has-text-black" do %>
-              <%= image_tag shot.user_shot.url , class: "shot__image", loading: "lazy"%>
+              <%= image_tag shot.user_shot.url(:thumb) , class: "shot__image", loading: "lazy"%>
             <% end %>
 
             <div class="shot--details">

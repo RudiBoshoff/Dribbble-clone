@@ -8,7 +8,7 @@
   cursor: pointer;
   display: grid;
   gap: 2em;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .shot{
@@ -25,6 +25,7 @@
 
   &__image {
     border-radius: .5em;
+    width: 100%;;
     
     &:hover {
       cursor: pointer;
@@ -105,3 +106,6 @@
   width: 100%;
 }
 
+.user-shot {
+  border-radius: .5em;
+}
