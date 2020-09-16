@@ -16,7 +16,7 @@
                 <div class="level-left">
                   <div class="level-item">
                     <figure figure class="image is-32x32">
-                      <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" loading="lazy">
+                      <%= gravatar_image_tag(shot.user.email.gsub('spam', 'mdeering'), alt: shot.user.name, class: "is-rounded", gravatar: { size: 32, secure: true })%>
                     </figure>
                   </div>
                   <div class="level-item">
