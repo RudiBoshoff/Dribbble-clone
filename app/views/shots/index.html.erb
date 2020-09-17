@@ -33,8 +33,8 @@
                     </div>
                   </div>
                   <div class="level-item">
-                    <%= link_to root_path, class: "shot__comment" do %>
-                      <span>231</span><i class="fas fa-comment"></i>
+                    <%= link_to shot, class: "shot__comment" do %>
+                      <span><%= shot.comments.count %></span><i class="fas fa-comment"></i>
                     <% end %>
                   </div>
                   <div class="level-item">

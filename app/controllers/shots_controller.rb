@@ -12,7 +12,7 @@ class ShotsController < ApplicationController
   # GET /shots/1.json
   def show
     @comment = @shot.comments.new
-    @comment.user_id = current_user.id
+    @comment.user_id = current_user.id if current_user 
   end
 
   # GET /shots/new
