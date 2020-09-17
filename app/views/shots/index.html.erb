@@ -43,23 +43,23 @@
 
                   <%# likes %>
                   <div class="level-item">
-                  <% if user_signed_in? %>
+                    <% if user_signed_in? %>
 
-                    <% if current_user.liked? shot %>
-                      <%= link_to unlike_shot_path(shot), class: "shot__like", method: :put do %>
-                        <span><%= shot.votes_for.size %></span><i class="fas fa-heart is-primary"></i>
-                      <% end %>
+                      <% if current_user.liked? shot %>
+                          <%= link_to unlike_shot_path(shot), method: :put do %>
+                            <span><%= shot.votes_for.size %></span><i class="fas fa-heart is-primary"></i>
+                          <% end %>
+                      <% else%>
+                          <%= link_to like_shot_path(shot), class: "shot__like", method: :put do %>
+                            <span><%= shot.votes_for.size %></span><i class="fas fa-heart"></i>
+                          <% end %>
+                        <% end %>
+                        
                     <% else %>
-                      <%= link_to like_shot_path(shot), class: "shot__like", method: :put do %>
+                      <%= link_to new_user_session_path, class: "shot__like" do %>
                         <span><%= shot.votes_for.size %></span><i class="fas fa-heart"></i>
                       <% end %>
                     <% end %>
-
-                               <% else %>
-                    <%= link_to new_user_session_path, class: "shot__like" do %>
-                      <span><%= shot.votes_for.size %></span><i class="fas fa-heart"></i>
-                    <% end %>
-                  <% end %>
                   </div>
                 </div>
               </div>

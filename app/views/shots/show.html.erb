@@ -23,13 +23,37 @@
                 <i class="fas fa-trash"></i>
               </span>
             <% end %>
+          <% elsif user_signed_in? && (current_user.id != @shot.user_id) %>
+
+            <% if current_user.liked? @shot %>
+                <%= link_to unlike_shot_path(@shot), method: :put do %>
+                  <div class="button is-primary">
+                    <span>Liked</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-heart"></i>
+                      </span>
+                  </div>
+                <% end %>
+            <% else%>
+              <%= link_to like_shot_path(@shot), method: :put do %>
+                <div class="button">
+                  <span>Like</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-heart"></i>
+                    </span>
+                </div>
+              <% end %>
+            <% end %>
+              
           <% else %>
-            <div class="button">
-              <span>Like</span>
-                <span class="icon is-small">
-                  <i class="fas fa-heart"></i>
-                </span>
-            </div>
+            <%= link_to new_user_session_path do %>
+              <div class="button">
+                <span>Like</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-heart"></i>
+                  </span>
+              </div>
+            <% end %>
           <% end %>
         </div>
 
@@ -64,21 +88,21 @@
           <div class="level-item">
             <% if user_signed_in? %>
 
-                <% if current_user.liked? @shot %>
-                  <%= link_to unlike_shot_path(@shot), class: "shot__like", method: :put do %>
+              <% if current_user.liked? @shot %>
+                  <%= link_to unlike_shot_path(@shot), method: :put do %>
                     <span><%= @shot.votes_for.size %></span><i class="fas fa-heart is-primary"></i>
                   <% end %>
-                <% else%>
+              <% else%>
                   <%= link_to like_shot_path(@shot), class: "shot__like", method: :put do %>
                     <span><%= @shot.votes_for.size %></span><i class="fas fa-heart"></i>
                   <% end %>
                 <% end %>
                 
-              <% else %>
-                <%= link_to new_user_session_path, class: "shot__like" do %>
-                  <span><%= @shot.votes_for.size %></span><i class="fas fa-heart"></i>
-                <% end %>
+            <% else %>
+              <%= link_to new_user_session_path, class: "shot__like" do %>
+                <span><%= @shot.votes_for.size %></span><i class="fas fa-heart"></i>
               <% end %>
+            <% end %>
           </div>
         </div>
       </div>
