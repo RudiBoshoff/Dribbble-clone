@@ -1,8 +1,6 @@
 <div class="columns">
   <div class="column"></div>
-  <div class="column is-one-third-fullhd is-one-third-tablet is-one-quarter-widescreen">
-    <div class="level is-mobile">
-      <div class="level-left">
+  <div class="column is-half-fullhd is-half-tablet is-half-widescreen">
         <div class="shot__title ">
             <p class="title">        
               <%= @shot.title %>
@@ -11,31 +9,29 @@
               <%= verbose_date(@shot.created_at) %>
             </p>
         </div>
-      </div>
-      <div class="level-right">
-        <% if user_signed_in? && (current_user.id == @shot.user_id) %>
-          <%= link_to edit_shot_path(@shot), class: "button" do %>
-            <span>Edit</span>
-            <span class="icon is-small">
-              <i class="fas fa-pen"></i>
-            </span>
-          <% end %>
-          <%= link_to shot_path(@shot), method: :delete, data: { confirm: "Are you sure you want to delete this shot?"}, class: "button has-text-danger" do %>
-            <span>Delete</span>
-            <span class="icon is-small">
-              <i class="fas fa-trash"></i>
-            </span>
-          <% end %>
-        <% else %>
-          <div class="button">
-            <span>Like</span>
+        <div class="actions mt-3 mb-3">
+          <% if user_signed_in? && (current_user.id == @shot.user_id) %>
+            <%= link_to edit_shot_path(@shot), class: "button mr-1" do %>
+              <span>Edit</span>
               <span class="icon is-small">
-                <i class="fas fa-heart"></i>
+                <i class="fas fa-pen"></i>
               </span>
-          </div>
-        <% end %>
-      </div>
-    </div>
+            <% end %>
+            <%= link_to shot_path(@shot), method: :delete, data: { confirm: "Are you sure you want to delete this shot?"}, class: "button has-text-danger" do %>
+              <span>Delete</span>
+              <span class="icon is-small">
+                <i class="fas fa-trash"></i>
+              </span>
+            <% end %>
+          <% else %>
+            <div class="button">
+              <span>Like</span>
+                <span class="icon is-small">
+                  <i class="fas fa-heart"></i>
+                </span>
+            </div>
+          <% end %>
+        </div>
 
     <%= image_tag @shot.user_shot.url, class: "user-shot" %>
     

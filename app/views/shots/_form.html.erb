@@ -64,14 +64,14 @@
   <div class="field">
     <%= form.label :title, class: "label" %>
     <div class="control">
-      <%= form.text_field :title, class: "input" %>
+      <%= form.text_field :title, class: "input", maxlength: 40 %>
     </div>
   </div>
 
   <div class="field">
     <%= form.label :description, class: "label" %>
     <div class="control">
-      <%= form.text_area :description, class: "textarea", rows: "4", cols: "60" %>
+      <%= form.text_area :description, class: "textarea", rows: "4", cols: "60", maxlength: "250" %>
     </div>
   </div>
 

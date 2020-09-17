@@ -109,3 +109,27 @@
 .user-shot {
   border-radius: .5em;
 }
+
+@media only screen and (min-width: 850px){
+  .columns{
+    display: flex;;
+  }
+  .column:nth-of-type(2) {
+    flex: 5 ;
+  }
+}
+
+.column:nth-of-type(2){
+  max-width: 800px;
+}
+
+@media only screen and (min-width: 550px){
+  .shots {
+    padding: 0 10%;
+  }
+}
+@media only screen and (min-width: 900px){
+  .shots {
+    padding: 0 5%;
+  }
+}
