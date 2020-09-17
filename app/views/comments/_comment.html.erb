@@ -1,0 +1,23 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+     <%= gravatar_image_tag(comment.user.email.gsub('spam', 'mdeering'), alt: comment.user.name, gravatar: { size: 64 }) %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong><%= comment.user.name.titleize %></strong>
+        <br>
+        <%= comment.response %>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+  <% if user_signed_in? && comment.user_id == current_user.id %>
+    <%= link_to shot_comment_path(comment.shot, comment), method: :delete do %>
+      <button class="delete"></button>
+    <% end %>
+  <% end %>
+  </div>
+</article>

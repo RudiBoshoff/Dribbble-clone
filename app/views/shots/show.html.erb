@@ -74,6 +74,16 @@
       <%= @shot.description %>
     </p>
 
+
+    <%# comments   %>
+    <h1 class="title mt-3 is-4"><%= pluralize(@shot.comments.count, "Response") %></h1>
+      <%= render @shot.comments.select(&:persisted?) %>
+    <% if user_signed_in? %>
+      <hr>
+      <%= render 'comments/form', shot: @shot, comment: @comment %>
+    <% else %>
+      <%# sign in %>
+    <% end %>
   </div>
   <div class="column"></div>
 </div>

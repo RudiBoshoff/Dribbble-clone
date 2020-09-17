@@ -1,6 +1,6 @@
 class ShotsController < ApplicationController
   before_action :set_shot, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:eidt, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /shots
   # GET /shots.json
@@ -11,6 +11,8 @@ class ShotsController < ApplicationController
   # GET /shots/1
   # GET /shots/1.json
   def show
+    @comment = @shot.comments.new
+    @comment.user_id = current_user.id
   end
 
   # GET /shots/new

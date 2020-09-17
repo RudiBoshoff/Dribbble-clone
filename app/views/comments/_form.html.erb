@@ -1,0 +1,28 @@
+<h1 class="title is-4">Leave a reply</h1>
+<%= form_with model: [shot, comment ], local: true do |form| %>  
+  <% if comment.errors.any? %>
+    <div class="notification is-danger">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this shot from being saved:</h2>
+
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :response, class: "label"%>
+    <div class="control">
+      <%= form.text_area :response, class: "textarea", maxlength: "200" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit class: "button is-primary" %>
+    </div>
+  </div>
+
+<% end %>
