@@ -8,7 +8,8 @@ class ShotsController < ApplicationController
   # GET /shots
   # GET /shots.json
   def index
-    @shots = Shot.all.order(created_at: :desc)
+    # sort shots by number of views then by when it was created (newist first)
+    @shots = Shot.all.sort_by {|shot| [shot.impressionist_count, shot.created_at]}.reverse
   end
 
   # GET /shots/1
