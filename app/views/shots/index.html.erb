@@ -26,21 +26,40 @@
                   </div>
                 </div>
                 
+                <%# views %>
                 <div class="level-right">
                   <div class="level-item">
                     <div class="shot__view">
                       <span><%= shot.impressionist_count %></span><i class="fas fa-eye"></i>
                     </div>
                   </div>
+
+                  <%# comments %>
                   <div class="level-item">
                     <%= link_to shot, class: "shot__comment" do %>
                       <span><%= shot.comments.count %></span><i class="fas fa-comment"></i>
                     <% end %>
                   </div>
+
+                  <%# likes %>
                   <div class="level-item">
-                    <%= link_to root_path, class: "shot__like" do %>
-                      <span>78</span><i class="fas fa-heart"></i>
+                  <% if user_signed_in? %>
+
+                    <% if current_user.liked? shot %>
+                      <%= link_to unlike_shot_path(shot), class: "shot__like", method: :put do %>
+                        <span><%= shot.votes_for.size %></span><i class="fas fa-heart is-primary"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to like_shot_path(shot), class: "shot__like", method: :put do %>
+                        <span><%= shot.votes_for.size %></span><i class="fas fa-heart"></i>
+                      <% end %>
                     <% end %>
+
+                               <% else %>
+                    <%= link_to new_user_session_path, class: "shot__like" do %>
+                      <span><%= shot.votes_for.size %></span><i class="fas fa-heart"></i>
+                    <% end %>
+                  <% end %>
                   </div>
                 </div>
               </div>

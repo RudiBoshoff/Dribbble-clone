@@ -11,4 +11,7 @@ class Shot < ApplicationRecord
 
   # impressionist setup
   is_impressionable
+
+  # acts as votable setup (allows a shot to be liked)
+  acts_as_votable
 end

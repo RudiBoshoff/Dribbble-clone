@@ -1,6 +1,6 @@
 class ShotsController < ApplicationController
-  before_action :set_shot, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_shot, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
 
   # actions to track with impressionist gem
   impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
@@ -65,6 +65,22 @@ class ShotsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to shots_url, notice: 'Shot was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    @shot.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js { render layout: false}
+    end
+  end
+
+  def unlike
+    @shot.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.js { render layout: false}
     end
   end
 

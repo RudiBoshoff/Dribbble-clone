@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :shots, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  # acts as votable setup (allows user to like a shot)
+  acts_as_voter
 end
