@@ -1,0 +1,43 @@
+<div class="shot">
+  <%= link_to shot, class: "has-text-black" do %>
+    <%= image_tag shot.user_shot.url(:thumb) , class: "shot__image", loading: "lazy"%>
+  <% end %>
+
+  <div class="shot--details">
+    <div class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          <figure figure class="image is-32x32">
+            <%= gravatar_image_tag(shot.user.email.gsub('spam', 'mdeering'), alt: shot.user.name, class: "is-rounded", gravatar: { size: 32, secure: true })%>
+          </figure>
+        </div>
+        <div class="level-item">
+          <%= link_to root_path, class: "shot__user" do %>
+            <%= shot.user.name.titleize %>
+          <% end %>
+        </div>
+      </div>
+      
+      <%# views %>
+      <div class="level-right">
+        <div class="level-item">
+          <div class="shot__view">
+            <span><%= shot.impressionist_count %></span><i class="fas fa-eye"></i>
+          </div>
+        </div>
+
+        <%# comments %>
+        <div class="level-item">
+          <%= link_to shot, class: "shot__comment" do %>
+            <span><%= shot.comments.count %></span><i class="fas fa-comment"></i>
+          <% end %>
+        </div>
+
+        <%# likes %>
+        <div class="level-item">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

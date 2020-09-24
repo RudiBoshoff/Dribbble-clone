@@ -56,6 +56,17 @@
 
 }
 
+.like-btn {
+  color: #999;
+  span {
+    padding-right: 5px;
+  }
+}
+
+.is-primary {
+  color: #ff4392;
+}
+
 .js-drop-zone {
   z-index: 10;
  position: relative;

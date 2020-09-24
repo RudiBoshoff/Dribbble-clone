@@ -1,6 +1,6 @@
 class ShotsController < ApplicationController
-  before_action :set_shot, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :set_shot, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :vote]
 
   # actions to track with impressionist gem
   impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
@@ -68,19 +68,15 @@ class ShotsController < ApplicationController
     end
   end
 
-  def like
-    @shot.liked_by current_user
-    respond_to do |format|
-      format.html { redirect_back fallback_location: root_path }
-      format.js { render layout: false}
+  def vote
+    if !current_user.liked? @shot
+      @shot.liked_by current_user
+    elsif current_user.liked? @shot
+      @shot.unliked_by current_user
     end
-  end
 
-  def unlike
-    @shot.unliked_by current_user
     respond_to do |format|
-      format.html { redirect_back fallback_location: root_path }
-      format.js { render layout: false}
+      format.js
     end
   end
 
