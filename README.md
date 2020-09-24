@@ -29,3 +29,9 @@ A clone of dribbble using rails. Site has authentication, authorization and user
 10. mini_magick
 
 ### Screen Shots:
+<p align="center">
+  <img src="">
+  <img src="">
+  <img src="">
+  <img src="">
+</p>
