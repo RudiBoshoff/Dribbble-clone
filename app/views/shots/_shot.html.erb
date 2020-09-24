@@ -35,7 +35,17 @@
 
         <%# likes %>
         <div class="level-item">
-          
+          <% if user_signed_in? %>
+            <% if current_user.liked? shot %>
+              <%= link_to like_shot_path(shot), method: :put, remote: true, class: "like-btn is-primary" do %>
+                <span class="likes-count"><%= shot.get_upvotes.size %></span><i class="fas fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to like_shot_path(shot), method: :put, remote: true, class: "like-btn" do %>
+                <span class="likes-count"><%= shot.get_upvotes.size %></span><i class="fas fa-heart"></i>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

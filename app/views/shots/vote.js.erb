@@ -1,7 +1,7 @@
 <% if current_user.liked? @shot %>
-  $('.like-btn').addClass("is-primary");
+  $('#js-shot-<%= @shot.id %> .like-btn').addClass("is-primary");
 <% else%>
-  $('.like-btn').removeClass("is-primary");
+  $('#js-shot-<%= @shot.id %> .like-btn').removeClass("is-primary");
 <% end %>
 
-$('.likes-count').html("<%= @shot.get_upvotes.size %>")
+$('#js-shot-<%= @shot.id %> .likes-count').html("<%= @shot.get_upvotes.size %>")
