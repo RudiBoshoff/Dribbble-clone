@@ -28,10 +28,11 @@ A clone of dribbble using rails. Site has authentication, authorization and user
 9. carrier_wave
 10. mini_magick
 
-### Screen Shots:
+### Screen Shots of index page Desktop to Mobile:
 <p align="center">
-  <img src="">
-  <img src="">
-  <img src="">
-  <img src="">
+  <img src="https://user-images.githubusercontent.com/30492583/94128089-ff7abe00-fe59-11ea-8a48-f99aee3ccab2.png">
+  <img src="https://user-images.githubusercontent.com/30492583/94128112-043f7200-fe5a-11ea-9de5-02fd048b4195.png">
+  <img src="https://user-images.githubusercontent.com/30492583/94128130-09042600-fe5a-11ea-8575-d34917c1aa48.png">
+  <img src="https://user-images.githubusercontent.com/30492583/94128148-0efa0700-fe5a-11ea-9e78-8395bdecd9e0.png">
 </p>
+
